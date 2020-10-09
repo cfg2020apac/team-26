@@ -18,3 +18,14 @@ img {
 .Enter {
 	margin-left: 42%;
 }
+
+#logInCard {
+	align-items: center;
+	margin: 5% 0 0 25%;
+	height: 300px;
+	padding-top: 10px;
+}
+
+#registerBtn {
+	margin: 10px 10px 0 0;
+}
