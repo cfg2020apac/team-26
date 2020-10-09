@@ -1,0 +1,20 @@
+img {
+	margin-left: 33%;
+}
+
+.Enter_button {
+	font-size: 20px;
+	font-style: bold;
+	background-color: black;
+	color: white;
+	height: 30px;
+	border-radius: 15px;
+	padding: 30px;
+	text-align: center;
+	width: 200px;
+	cursor: pointer;
+}
+
+.Enter {
+	margin-left: 42%;
+}
