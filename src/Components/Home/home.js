@@ -3,7 +3,11 @@ import './home.css';
 import { useState } from 'react';
 import logo from '../../Assets/Images/HandsOn_logo.png';
 // import login from '../Login/login';
-import {axios} from 'axios'
+// import logo from '../../Assets/Images/HandsOn_favicon.png';
+
+import { axios } from 'axios';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+// import { browserHistory } from 'react-router';
 
 class home extends React.Component {
 	constructor(props) {
@@ -16,6 +20,9 @@ class home extends React.Component {
 	render() {
 		return (
 			<div>
+				{/* <div>
+					<Header />
+				</div> */}
 				<img
 					id="logo"
 					src={logo}
@@ -42,13 +49,17 @@ class home extends React.Component {
 	}
 }
 
+// const Header = () => {
+// 	return <img class="logo" className="ui tiny image" src={logo} />;
+// };
+
 class LogIn extends React.Component {
-	state={
+	state = {
 		showRegNgo: false,
 		showRegVol: false,
 		username: null,
-
-	}
+		showLogIn: false
+	};
 	// login = () => {
 	// 	return (
 	// 		<div>
@@ -75,119 +86,167 @@ class LogIn extends React.Component {
 	// 	);
 	// };
 
-	registerNgo =()=>{
-		return(
+	registerNgo = () => {
+		return (
 			<div id="registerNgo" class="ui card" style={{ width: '50%' }}>
-					<form class="ui form">
-						<div class="content">
-							<div class="header">Please Register:</div>
-						</div>
-						<div class="field">
-							<label>Username</label>
-							<input type="text" name="username" placeholder="Username" />
-						</div>
-						<div class="field">
-							<label>Password</label>
-							<input type="Password" name="password" placeholder="Password" />
-						</div>
-						<div class="field">
-							<label>Description</label>
-							<input type="text" name="username" placeholder="Please add the description" />
-						</div>
-						<button class="ui button" type="submit">
-							Register
-						</button>
-					</form>
+				<form class="ui form">
+					<div class="content">
+						<div class="header">Please Register:</div>
+					</div>
+					<div class="field">
+						<label>Username</label>
+						<input type="text" name="username" placeholder="Username" />
+					</div>
+					<div class="field">
+						<label>Password</label>
+						<input type="Password" name="password" placeholder="Password" />
+					</div>
+					<div class="field">
+						<label>Description</label>
+						<input type="text" name="username" placeholder="Please add the description" />
+					</div>
+					<button class="ui button" type="submit">
+						Register
+					</button>
+				</form>
 			</div>
-		)
-	}
+		);
+	};
 
-	registerVolunteer =()=>{
-		return(
+	registerVolunteer = () => {
+		return (
 			<div id="registerNgo" class="ui card" style={{ width: '50%' }}>
-					<form class="ui form">
-						<div class="content">
-							<div class="header">Please Register:</div>
-						</div>
-						<div class="field">
-							<label>Username</label>
-							<input type="text" name="username" placeholder="Username" />
-						</div>
-						<div class="field">
-							<label>Password</label>
-							<input type="Password" name="password" placeholder="Password" />
-						</div>
-						<div class="field">
-							<label>Description</label>
-							<input type="text" name="username" placeholder="Please add the description" />
-						</div>
-						<button class="ui button" type="submit">
-							Register
-						</button>
-					</form>
+				<form class="ui form">
+					<div class="content">
+						<div class="header">Please Register:</div>
+					</div>
+					<div class="field">
+						<label>Username</label>
+						<input type="text" name="username" placeholder="Username" />
+					</div>
+					<div class="field">
+						<label>Password</label>
+						<input type="Password" name="password" placeholder="Password" />
+					</div>
+					<div class="field">
+						<label>Description</label>
+						<input type="text" name="username" placeholder="Please add the description" />
+					</div>
+					<button class="ui button" type="submit">
+						Register
+					</button>
+				</form>
 			</div>
-		)
-	}
-	checkout = () =>{
+		);
+	};
+
+	checkout = () => {
 		// let result = await axios.get(`http://localhost:3002/findVolunteer`)
 		// console.log(result)
-
-	}
-
+		// browserHistory.push('/login');
+		// if (this.state.username == 'Animal Shelter') {
+		return (
+			<div>
+				<div class="ui secondary menu" />
+				{console.log('check')}
+			</div>
+		);
+		// }
+	};
 	render() {
 		return (
 			<div>
-				<div id="logInCard" class="ui card" style={{ width: '50%', display: this.state.showRegNgo == true || this.state.showRegVol == true ? 'none' : 'block'  }}>
-					<form class="ui form" >
+				<div
+					id="logInCard"
+					class="ui card"
+					style={{
+						width: '50%',
+						display:
+							this.state.showRegNgo == true ||
+							this.state.showRegVol == true ||
+							this.state.showLogIn == true
+								? 'none'
+								: 'block'
+					}}
+				>
+					<form class="ui form" style={{ padding: '20px' }}>
 						<div class="content">
 							<div class="header">Log In</div>
 						</div>
 						<div class="field">
-							<label>Username</label>
-							<input type="text" name="username" placeholder="Username"  value={this.state.username} 
-							onChange={e => 
-								this.setState({
-									username: e.target.value
-								})
-							} 
+							<label class="labelName">Username</label>
+							<input
+								type="text"
+								name="username"
+								placeholder="Username"
+								class="in"
+								value={this.state.username}
+								onChange={(e) =>
+									this.setState({
+										username: e.target.value
+									})}
 							/>
 						</div>
 						<div class="field">
 							<label>Password</label>
-							<input type="Password" name="password" placeholder="Password" />
+							<input type="Password" class="in" name="password" placeholder="Password" />
 						</div>
-						<button class="ui button" type="submit"  onClick={() => this.checkout()}>
+						<button
+							class="ui button"
+							// type="submit"
+							onClick={() =>
+								this.setState({
+									showLogIn: true
+								})}
+						>
 							Log In
 						</button>
 					</form>
-					<div>
-						<button id="registerBtn" class="small ui button" 
+					<div style={{ paddingTop: '100px' }}>
+						<button
+							id="registerBtn"
+							class="small ui button"
 							onClick={() =>
 								this.setState({
 									showRegNgo: true,
 									showRegVol: false
-							})}>
+								})}
+						>
 							Register as NGO
 						</button>
-						<button id="registerBtn" class="small ui button" 
+						<button
+							id="registerBtn"
+							class="small ui button"
 							onClick={() =>
 								this.setState({
 									showRegVol: true,
-									showRegNgo: false,
-							})}>
+									showRegNgo: false
+								})}
+						>
 							Register as volunteer
 						</button>
 					</div>
 				</div>
-				<div>
-					{this.state.showRegNgo == true? this.registerNgo(): <div/>}
-				</div>
-				<div>
-					{this.state.showRegVol == true? this.registerVolunteer(): <div/>}
-				</div>
+				<div>{this.state.showLogIn == true ? this.checkout() : <div />}</div>
+				<div>{this.state.showRegNgo == true ? this.registerNgo() : <div />}</div>
+				<div>{this.state.showRegVol == true ? this.registerVolunteer() : <div />}</div>
 			</div>
 		);
 	}
 }
+
+// class checkout extends React.Component{
+// 	// let result = await axios.get(`http://localhost:3002/findVolunteer`)
+// 	// console.log(result)
+// 	// browserHistory.push('/login');
+// 	if (this.state.username == 'Animal Shelter') {
+// 		return (
+// 			<div>
+// 				<div class="ui secondary menu" />
+// 			</div>
+// 		);
+// 	}
+// 	render
+// };
 
 export default home;

@@ -1,18 +1,46 @@
-img {
-	margin-left: 33%;
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@800&display=swap');
+
+#logo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.header {
+	background-color: #00008b;
+	color: white;
+	text-align: center;
+}
+button {
+	background-color: #4caf50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+.labelName {
+	color: pink;
 }
 
 .Enter_button {
 	font-size: 20px;
-	font-style: bold;
+	font-family: 'Sansita Swashed', cursive;
 	background-color: black;
 	color: white;
-	height: 30px;
+	height: 50px;
 	border-radius: 15px;
-	padding: 30px;
+	padding: 15px 30px 15px 30px;
 	text-align: center;
-	width: 200px;
+	width: 25%;
 	cursor: pointer;
+	box-shadow: 0 9px #353836;
+	top: 100px;
+}
+
+.Enter_button: active {
+	top: 0px;
 }
 
 .Enter {
@@ -25,7 +53,7 @@ img {
 	height: 300px;
 	padding-top: 10px;
 }
-#registerNgo{
+#registerNgo {
 	align-items: center;
 	margin: 5% 0 0 25%;
 	height: 300px;
@@ -36,6 +64,7 @@ img {
 	margin: 10px 10px 0 0;
 }
 
-.field{
+.field {
+	align-self: center;
 	width: 60%;
 }

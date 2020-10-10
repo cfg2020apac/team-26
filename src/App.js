@@ -2,18 +2,24 @@ import React from 'react';
 import './App.css';
 import logo from './Assets/Images/HandsOn_favicon.png';
 import Home from './Components/Home/home';
-import {Router, Route} from 'react-router'
-// import login from './Components/Login'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import login from './Components/Login/login';
 
 function App() {
 	return (
 		<div>
-			{/* <Header/> */}
-			{/* <Router >
-				<Route exact path='/login' component={login} />
-			</Router> */}
-			<img className="ui tiny image" src={logo} />
-			<Home />
+			<img class="logo" className="ui tiny image" src={logo} />;
+			<div>
+				<Router>
+					<div>
+						<Switch>
+							<Route path="/" component={Home} />
+							<Route path="/login" component={login} />
+						</Switch>
+					</div>
+				</Router>
+				{/* <Home /> */}
+			</div>
 		</div>
 	);
 }
